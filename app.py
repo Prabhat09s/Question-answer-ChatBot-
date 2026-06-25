@@ -30,7 +30,8 @@ prompt = ChatPromptTemplate.from_messages(
 
 def generate_response(question,api_key,engine,temperature,max_token):
     # Set Gemini API key
-    api_ky=os.environ["GOOGLE_API_KEY"] 
+    # api_ky=os.environ["GOOGLE_API_KEY"] 
+    api_ky = os.getenv("GOOGLE_API_KEY")
 
     llm=ChatGoogleGenerativeAI(model=engine)
     output_parser=StrOutputParser()
