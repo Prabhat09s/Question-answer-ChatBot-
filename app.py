@@ -7,9 +7,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ## Langchain Tracking
-os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
-os.environ["LANGCHAIN_TRACKING_V2"]="true"
-os.environ["LANGCHAIN_PROJECT"]="Simple Q&A ChatBot"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+langchain_key = os.getenv("LANGCHAIN_API_KEY")
+
+if langchain_key:
+    os.environ["LANGCHAIN_API_KEY"] = langchain_key
+# os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
+    os.environ["LANGCHAIN_TRACKING_V2"]="true"
+    os.environ["LANGCHAIN_PROJECT"]="Simple Q&A ChatBot"
 
 ## Prompt Tempate
 prompt = ChatPromptTemplate.from_messages(
